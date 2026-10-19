@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data: http://127.0.0.1:* https://retroachievements.org https://media.retroachievements.org https://media.steampowered.com https://steamcdn-a.akamaihd.net https://*.steamstatic.com https://*.steampowered.com; img-src 'self' file: data: https://media.retroachievements.org https://retroachievements.org https://media.steampowered.com https://steamcdn-a.akamaihd.net https://*.steamstatic.com https://*.steampowered.com; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' http://127.0.0.1:* https://retroachievements.org">
+  <title>Game Roulette</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-frame">
+    <aside class="sidebar">
+      <div class="brand"><img src="../game_roulette_icon.png" alt=""><span>GAME<br><b>ROULETTE</b></span></div>
+      <nav id="navigation" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard"><i>⌂</i>Dashboard</button>
+        <button class="nav-link" data-page="library"><i>🎮</i>Game Library</button>
+        <button class="nav-link" data-action="big-picture"><i>▣</i>Big Picture</button>
+        <button class="nav-link" data-page="roulette"><i>🎲</i>Game Roulette</button>
+        <button class="nav-link" data-page="backlog"><i>▤</i>Backlog</button>
+        <button class="nav-link" data-page="collections"><i>🗂</i>Collections</button>
+        <button class="nav-link" data-page="achievements"><i>🏆</i>Achievements</button>
+        <button class="nav-link" data-page="settings"><i>⚙</i>Settings</button>
+      </nav>
+      <div class="side-player"><div class="side-avatar" id="sideAvatar">🎮</div><div><b id="sideName">Player</b><small>GAME COLLECTOR</small></div></div>
+      <div class="side-footer"><span class="online-dot"></span><span>LOCAL PROFILE</span><span class="version-label">v2.0</span></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="titlebar">
+        <div class="drag-space"></div>
+        <button class="window-action" data-action="minimize" aria-label="Minimize">−</button>
+        <button class="window-action" data-action="maximize" aria-label="Maximize">□</button>
+        <button class="window-action close-action" data-action="close" aria-label="Close">×</button>
+      </div>
+      <header class="topbar">
+        <div class="welcome"><span>WELCOME BACK,</span><h1 id="welcomeName">Player</h1></div>
+        <label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search your games and collections…"><kbd>CTRL K</kbd></label>
+        <button class="big-picture-toggle" data-action="big-picture" title="Open fullscreen Big Picture mode">BIG PICTURE</button>
+        <button class="circle-action" data-page="library" title="Open library">🎮</button>
+        <button class="circle-action" data-page="achievements" title="Achievements">♧</button>
+        <button class="header-avatar" data-action="edit-profile" title="Edit player profile"><img id="headerAvatar" alt="Player avatar"><span></span></button>
+      </header>
+      <main id="page" class="page-content" tabindex="-1"></main>
+      <div class="status-line" id="statusLine">Ready · Your games stay on this PC.</div>
+    </section>
+  </div>
+  <dialog id="gameDialog" class="game-dialog"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./renderer.js"></script>
+</body>
+</html>

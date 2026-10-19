@@ -1,0 +1,30 @@
+{
+  "name": "game-roulette-js",
+  "version": "2.0.0",
+  "description": "Game Roulette 2.0 JavaScript desktop edition",
+  "license": "MIT",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "dist:portable": "electron-builder --win portable --x64",
+    "dist:dir": "electron-builder --win dir --x64"
+  },
+  "devDependencies": {
+    "electron": "44.9.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.gameroulette.desktop.js",
+    "productName": "Game Roulette",
+    "toolsets": { "nsis": "1.2.1" },
+    "directories": { "output": "release" },
+    "files": ["src/**/*", "assets/**/*", "OBS Bottom Bar/**/*", "game_roulette_icon.png", "dashboard-hero.png"],
+    "asar": true,
+    "win": {
+      "icon": "game_roulette_icon.ico",
+      "target": [{ "target": "portable", "arch": ["x64"] }]
+    },
+    "portable": { "artifactName": "Game-Roulette-2.0-JavaScript-${version}-Portable.exe" }
+  }
+}

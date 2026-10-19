@@ -1,0 +1,59 @@
+:root {
+  color-scheme: dark;
+  --accent: #a855f7;
+  --bar-height: 112px;
+  --bar-opacity: .92;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: transparent;
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+.achievement-bar {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  left: 4%;
+  display: flex;
+  height: var(--bar-height);
+  align-items: center;
+  gap: 20px;
+  padding: 18px 26px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 72%, white 8%);
+  border-left: 5px solid var(--accent);
+  border-radius: 16px;
+  background: rgba(9, 10, 19, var(--bar-opacity));
+  box-shadow: 0 8px 32px rgba(0,0,0,.35), 0 0 22px color-mix(in srgb, var(--accent) 25%, transparent);
+  color: #f7f4ff;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.achievement-bar.visible { opacity: 1; transform: translateY(0); }
+.achievement-icon {
+  display: grid;
+  width: calc(var(--bar-height) * .58);
+  height: calc(var(--bar-height) * .58);
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 68%, white 7%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 22%, #0d0b17);
+  color: color-mix(in srgb, var(--accent) 65%, white);
+  font-size: calc(var(--bar-height) * .34);
+  box-shadow: inset 0 0 18px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.achievement-icon[hidden] { display: none; }
+.achievement-copy { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 5px; }
+.eyebrow { color: color-mix(in srgb, var(--accent) 55%, white); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+.achievement-copy strong { overflow: hidden; font-size: clamp(17px, 2.1vw, 28px); font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+.game-title { overflow: hidden; color: #bdb7cb; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.points { flex: 0 0 auto; color: #f5d27b; font-size: 17px; font-weight: 850; white-space: nowrap; }
+.points:empty { display: none; }
+@media (max-width: 560px) {
+  .achievement-bar { right: 2%; bottom: 2%; left: 2%; gap: 11px; padding: 12px 14px; border-radius: 11px; }
+  .eyebrow { font-size: 8px; letter-spacing: .8px; }
+  .game-title { font-size: 10px; }
+  .points { font-size: 13px; }
+}
